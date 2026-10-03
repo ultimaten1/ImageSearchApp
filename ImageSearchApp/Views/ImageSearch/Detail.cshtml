@@ -1,0 +1,20 @@
+﻿@model ImageSearchApp.Models.PexelsImage
+
+@{
+    ViewData["Title"] = "Image Detail";
+}
+
+<link rel="stylesheet" href="~/css/image-detail.css" />
+<div class="container text-center my-5">
+    <h1 class="mb-4">Image Detail</h1>
+
+    <img src="@Model.SrcLarge" class="img-fluid rounded mb-4" alt="Image" loading="lazy" style="animation: fadeIn 1s; max-height: 600px; object-fit: cover;" />
+
+    <div class="image-info">
+        <h5 class="mb-2">@Model.Photographer</h5>
+        <p class="text-muted">Source: <a href="@Model.Url" target="_blank">@Model.Url</a></p>
+    </div>
+
+    <a asp-action="Index" class="btn btn-secondary mt-4">Back to Search</a>
+    <a asp-action="DownloadImage" asp-route-url="@Model.SrcLarge" class="btn btn-primary mt-4">Download Image</a>
+</div>
